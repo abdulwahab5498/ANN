@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Our Incredible 1st Year - Scroll Down! 💖</title>
+    <title>Our Incredible 1st Year - Happy Anniversary, Aliza! 💖</title>
     <style>
-        /* Base Styling - Same as before */
+        /* Base Styling */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d1117;
+            background-color: #0d1117; /* Dark background */
             color: #ffffff;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Smooth scrolling */
             overflow-x: hidden;
+            /* Outer Page Edge Glow Effect */
+            box-shadow: 0 0 50px rgba(255, 0, 150, 0.8) inset, 0 0 50px rgba(0, 255, 255, 0.8) inset;
         }
 
-        /* Section Styling */
+        /* Section Styling (Each "Page") */
         .section {
-            height: 100vh;
+            height: 100vh; /* Full viewport height */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -33,15 +35,16 @@
         /* Unique Section Designs */
         #intro { background-image: linear-gradient(135deg, #8c0d48 0%, #d81b60 100%); }
         #memories {
+            /* *** CHANGE THIS: Put your First Memory Image URL here *** */
             background-image: url('https://i.postimg.cc/brfvXrPZ/li.jpg'); 
             filter: grayscale(20%);
         }
         #quiz-section {
-            background-color: #00796b; /* Teal for fun/quiz */
+            background-color: #00796b;
             background-image: linear-gradient(to right, #00796b 0%, #00acc1 100%);
         }
         #funny-corner {
-            background-color: #ff9800; /* Orange/Yellow for comedy */
+            background-color: #ff9800;
             background-image: linear-gradient(to top, #ff9800 0%, #ffc107 100%);
             color: #212121;
         }
@@ -54,6 +57,7 @@
         #finale {
             background-color: #ffc107;
             color: #0d1117;
+            /* *** CHANGE THIS: Put your Final Best Couple Image URL here *** */
             background-image: url('https://i.postimg.cc/CKvDVjrd/wa.jpg'); 
         }
 
@@ -62,10 +66,12 @@
             background-color: rgba(0, 0, 0, 0.75);
             padding: 30px 50px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            /* Neon Pulsating Glow */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px #ff00ff;
             max-width: 700px;
             transition: all 0.5s ease-in-out;
             opacity: 0;
+            animation: neon-glow 1.5s ease-in-out infinite alternate; 
         }
 
         /* Headings & Messages */
@@ -88,8 +94,8 @@
             background-color: #00695c;
             transform: scale(1.03);
         }
-        .correct { background-color: #43a047 !important; } /* Green */
-        .incorrect { background-color: #e53935 !important; } /* Red */
+        .correct { background-color: #43a047 !important; }
+        .incorrect { background-color: #e53935 !important; }
         .quiz-result {
             margin-top: 20px;
             font-size: 1.5em;
@@ -108,11 +114,7 @@
             font-style: italic;
         }
 
-        /* Animations - Same as before */
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        /* Floating Hearts CSS and JS are the same, not repeated here for brevity */
-        .heart { /* ... Heart CSS */ } 
-        /* ... Floating Hearts CSS ... */
+        /* Floating Hearts CSS */
         .heart {
             position: absolute;
             width: 20px;
@@ -133,10 +135,24 @@
         }
         .heart:before { top: -10px; }
         .heart:after { left: 10px; }
-        
+
+        /* Animation Keyframes */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
         @keyframes float {
             0% { transform: translateY(0) translateX(0) rotate(-45deg); opacity: 1; }
             100% { transform: translateY(-1000px) translateX(200px) rotate(-45deg); opacity: 0; }
+        }
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 150, 0.6), 0 0 20px #ff00ff; /* Pinkish-Purple Low Glow */
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px #00ffff; /* Cyan/Blue High Glow */
+            }
         }
         
         .visible { opacity: 1; transform: translateY(0); }
@@ -148,7 +164,7 @@
         <div class="content-box">
             <h1>Our First 365 Days!</h1>
             <p style="font-size: 1.5em; color: #ffeb3b;">
-                Happy 1st Anniversary, **[GIRLFRIEND'S NAME]**! Scroll down to see our memories and take a fun quiz!
+                Happy 1st Anniversary, ALIZA! Scroll down to see our memories and take a fun quiz!
             </p>
         </div>
     </div>
@@ -171,11 +187,11 @@
                 <p style="margin-top: 20px; font-weight: bold;">Q1: Humari Pehli Date Kahan Hui Thi?</p>
                 <div class="quiz-option" data-answer="Coffee Shop">Coffee Shop</div>
                 <div class="quiz-option" data-answer="Park">Park</div>
-                <div class="quiz-option" data-answer="Restaurant">Restaurant (Yeh Hai Sahi Jawab)</div>
+                <div class="quiz-option" data-answer="Restaurant">Restaurant</div>
 
                 <p style="margin-top: 20px; font-weight: bold;">Q2: Mera Favorite Food Kya Hai?</p>
                 <div class="quiz-option" data-answer="Biryani">Biryani</div>
-                <div class="quiz-option" data-answer="Pizza">Pizza (Yeh Hai Sahi Jawab)</div>
+                <div class="quiz-option" data-answer="Pizza ">Pizza </div>
                 <div class="quiz-option" data-answer="Noodles">Noodles</div>
 
                 <div class="quiz-result" id="quiz-result"></div>
@@ -190,13 +206,13 @@
             
             <div class="joke-box">
                 <p>
-                    **Jab Tum Late Hoti Ho:** *Tum hamesha kehti ho 'Sirf 5 minute', aur woh 5 minute 50 minute ban jaate hain! Par chalo, tumhari har der ka intezaar manzoor hai!*
+                    Jab Tum Late Hoti Ho: Tum hamesha kehti ho 'Sirf 5 minute', aur woh 5 minute 50 minute ban jaate hain! Par chalo, tumhari har der ka intezaar manzoor hai!
                 </p>
             </div>
             
             <div class="joke-box">
                 <p>
-                    **Tumhara Phone:** *Pata nahi tumhare phone mein kya hai, tum usko din mein 50 baar kyun dekhti ho? Shayad mere messages check karti ho! 😉*
+                    Tumhara Phone:Pata nahi tumhare phone mein kya hai, tum usko din mein 50 baar kyun dekhti ho? Shayad mere messages check karti ho! 😉
                 </p>
             </div>
         </div>
@@ -224,8 +240,7 @@
         <div class="content-box">
             <h1>Happy Anniversary Again, My Queen!</h1>
             <p style="font-size: 2em; font-weight: bold;">
-                Tum meri zindagi ho. - **[YOUR NAME]**
-            </p>
+                Tum meri zindagi ho. - **[YOUR NAME]** </p>
             <p style="margin-top: 30px;">
                 **18th December**
             </p>
@@ -235,8 +250,9 @@
     <script>
         // --- QUIZ LOGIC ---
         const correctAnswers = {
-            'Q1': 'Restaurant (Yeh Hai Sahi Jawab)', // Q1 ka correct answer
-            'Q2': 'Pizza (Yeh Hai Sahi Jawab)'      // Q2 ka correct answer
+            // *** IF YOU CHANGE ANSWERS IN HTML, CHANGE THEM HERE TOO ***
+            'Q1': 'Restaurant', 
+            'Q2': 'Pizza'      
         };
         const quizOptions = document.querySelectorAll('.quiz-option');
         const quizResult = document.getElementById('quiz-result');
@@ -246,9 +262,8 @@
 
         quizOptions.forEach(option => {
             option.addEventListener('click', function() {
-                // Check if the question is already attempted (by checking the parent's sibling status)
                 if (this.parentElement.querySelector('.correct, .incorrect')) {
-                    return; // Stop if already attempted
+                    return; 
                 }
 
                 questionsAttempted++;
@@ -256,7 +271,6 @@
                 const questionElement = this.previousElementSibling;
                 let questionKey = '';
                 
-                // Determine which question this option belongs to (Q1 or Q2)
                 if (questionElement && questionElement.textContent.includes('Pehli Date')) {
                     questionKey = 'Q1';
                 } else if (questionElement && questionElement.textContent.includes('Favorite Food')) {
@@ -271,7 +285,6 @@
                     score++;
                 } else {
                     this.classList.add('incorrect');
-                    // Highlight the correct answer for visual feedback
                     quizOptions.forEach(opt => {
                         if (opt.getAttribute('data-answer') === correctAnswer) {
                             opt.classList.add('correct');
@@ -283,18 +296,18 @@
                 if (questionsAttempted === totalQuestions) {
                     let resultText = '';
                     if (score === totalQuestions) {
-                        resultText = `🎉 Zabardast! Tumne Sab Sahi Jawab Diye! **${score}/${totalQuestions}**! Tum Mujhe Sabse Behtar Jaanti Ho!`;
+                        resultText = `🎉 Zabardast! Tumne Sab Sahi Jawab Diye! ${score}/${totalQuestions}! Tum Mujhe Sabse Behtar Jaanti Ho!`;
                     } else if (score > 0) {
-                        resultText = `🥰 Bohat Achhe! Tumhara Score Hai **${score}/${totalQuestions}**! Thoda Sa Focus Aur!`;
+                        resultText = `🥰 Bohat Achhe! Tumhara Score Hai ${score}/${totalQuestions}! Thoda Sa Focus Aur!`;
                     } else {
-                        resultText = `😅 Koi Baat Nahi! **${score}/${totalQuestions}**! Chalo Aaj Phir Se Yaad Karte Hain!`;
+                        resultText = `😅 Koi Baat Nahi! ${score}/${totalQuestions}! Chalo Aaj Phir Se Yaad Karte Hain!`;
                     }
                     quizResult.innerHTML = resultText;
                 }
             });
         });
         
-        // --- FLOATING HEARTS & SCROLL ANIMATION (Same as previous code) ---
+        // --- FLOATING HEARTS & SCROLL ANIMATION ---
 
         function createHeart() {
             const heart = document.createElement('div');
