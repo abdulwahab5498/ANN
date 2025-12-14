@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The BIG Question! 💍</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #12002f; /* Dark Purple Background */
+            color: #ffffff;
+            overflow: hidden; /* For floating balloons */
+        }
+        
+        /* Proposal Box Styling */
+        .proposal-box {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px 70px;
+            border-radius: 20px;
+            /* Beautiful Glow Edge */
+            box-shadow: 0 0 30px #ff0077, 0 0 60px #ff0077, 0 0 90px #00ffff;
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #ffeb3b;
+            text-shadow: 0 0 10px #ff0077, 0 0 20px #ff0077;
+            margin-bottom: 40px;
+        }
+
+        /* Buttons Container */
+        .buttons-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Irresistible 'YES' Button */
+        #yes-btn {
+            padding: 25px 60px;
+            font-size: 2.5em;
+            font-weight: 900;
+            border: 5px solid #00ff00;
+            border-radius: 15px;
+            background-color: #00e676; /* Bright Green */
+            color: #12002f;
+            cursor: pointer;
+            box-shadow: 0 0 30px #00e676, 0 0 60px rgba(0, 230, 118, 0.5);
+            transition: transform 0.1s;
+            animation: breathe 1.5s infinite alternate; /* To make it move slightly */
+        }
+        #yes-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Dull 'NO' Button */
+        #no-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: normal;
+            border: 1px solid #757575;
+            border-radius: 5px;
+            background-color: #424242; /* Grey/Dark */
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0.5;
+        }
+        #no-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+        
+        /* Balloon Styling */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 50% 50%;
+            transform: rotate(45deg);
+            z-index: 5;
+            animation: float-up 10s infinite;
+        }
+        .balloon::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 500px; /* String length */
+            background-color: rgba(255, 255, 255, 0.5);
+            bottom: -500px;
+            left: 50%;
+        }
+
+        /* Keyframe Animations */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 30px #ff0077, 0 0 60px #ff0077; }
+            100% { box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+        }
+        @keyframes float-up {
+            0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-500px) scale(1.2); opacity: 0; }
+        }
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.03); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="proposal-box">
+        <h1>My Dearest Aliza,</h1>
+        <h1 style="color: #00ffff; font-size: 5em;">Will You Marry Me? 💍</h1>
+        
+        <div class="buttons-container">
+            <button id="yes-btn" onclick="alert('Yay! I am the luckiest person alive! I Love You!'); window.location.href='index.html';">YES!</button>
+            <button id="no-btn" onclick="alert('No? Are you sure? Please click YES!');">No</button>
+        </div>
+    </div>
+    
+    <div id="balloon-container"></div>
+
+    <script>
+        // --- Balloon Spawning Logic ---
+        const colors = ['#e91e63', '#ffc107', '#00bcd4', '#4caf50'];
+        const container = document.getElementById('balloon-container');
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            
+            // Random styling for variety
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomDelay = Math.random() * 5;
+            const randomX = Math.random() * 100;
+            
+            balloon.style.backgroundColor = randomColor;
+            balloon.style.left = randomX + 'vw';
+            balloon.style.animationDelay = randomDelay + 's';
+            
+            // Apply color to the string too
+            balloon.querySelector('::before')
+            
+            container.appendChild(balloon);
+            
+            // Remove balloon after animation finishes (10 seconds)
+            setTimeout(() => { balloon.remove(); }, 10000); 
+        }
+
+        // Create a new balloon every 500ms
+        setInterval(createBalloon, 500); 
+    </script>
+
+</body>
+</html>
