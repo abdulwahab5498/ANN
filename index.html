@@ -3,22 +3,19 @@
 <head>
     <title>Our Incredible 1st Year - Happy Anniversary, Aliza! 💖</title>
     <style>
-        /* Base Styling */
+        /* Base Styling (CSS is mostly unchanged from previous version) */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d1117; /* Dark background */
+            background-color: #0d1117; 
             color: #ffffff;
-            scroll-behavior: smooth; /* Smooth scrolling */
+            scroll-behavior: smooth; 
             overflow-x: hidden;
-            /* Outer Page Edge Glow Effect */
             box-shadow: 0 0 50px rgba(255, 0, 150, 0.8) inset, 0 0 50px rgba(0, 255, 255, 0.8) inset;
         }
-
-        /* Section Styling (Each "Page") */
         .section {
-            height: 100vh; /* Full viewport height */
+            height: 100vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -31,8 +28,6 @@
             position: relative;
             overflow: hidden;
         }
-
-        /* Unique Section Designs */
         #intro { background-image: linear-gradient(135deg, #8c0d48 0%, #d81b60 100%); }
         #memories {
             background-image: url('https://i.postimg.cc/brfvXrPZ/li.jpg'); 
@@ -49,34 +44,26 @@
         #finale {
             background-color: #ffc107;
             color: #0d1117;
-            /* *** CHANGE THIS: Put your Final Best Couple Image URL here *** */
             background-image: url('https://i.postimg.cc/CKvDVjrd/wa.jpg'); 
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
         }
-
-        /* Text Container & Effects */
         .content-box {
             background-color: rgba(0, 0, 0, 0.75);
             padding: 30px 50px;
             border-radius: 15px;
-            /* Neon Pulsating Glow */
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px #ff00ff;
             max-width: 700px;
             transition: all 0.5s ease-in-out;
             opacity: 0;
             animation: neon-glow 1.5s ease-in-out infinite alternate; 
-            z-index: 2; /* Make sure content is above background image */
+            z-index: 2;
         }
-
-        /* Headings & Messages */
         h1, h2 { font-weight: 700; margin-bottom: 15px; letter-spacing: 2px; }
         h1 { font-size: 4em; color: #ffeb3b; animation: pulse 2s infinite; }
         h2 { font-size: 3em; }
         p { font-size: 1.3em; line-height: 1.6; }
-        
-        /* Countdown Button Styling */
         #surprise-button {
             padding: 15px 30px;
             font-size: 1.5em;
@@ -84,7 +71,7 @@
             cursor: pointer;
             border: none;
             border-radius: 10px;
-            background-color: #ff4081; /* Pink */
+            background-color: #ff4081; 
             color: white;
             box-shadow: 0 0 15px #ff4081;
             transition: background-color 0.3s;
@@ -99,8 +86,6 @@
             color: #ffeb3b;
             font-weight: bold;
         }
-
-        /* Funny Corner Styling (unchanged) */
         .joke-box {
             background-color: rgba(255, 255, 255, 0.9);
             color: #212121;
@@ -110,8 +95,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             font-style: italic;
         }
-
-        /* Floating Hearts CSS (unchanged) */
         .heart {
             position: absolute;
             width: 20px;
@@ -132,26 +115,9 @@
         }
         .heart:before { top: -10px; }
         .heart:after { left: 10px; }
-
-        /* Animation Keyframes (unchanged) */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        @keyframes float {
-            0% { transform: translateY(0) translateX(0) rotate(-45deg); opacity: 1; }
-            100% { transform: translateY(-1000px) translateX(200px) rotate(-45deg); opacity: 0; }
-        }
-        @keyframes neon-glow {
-            0% {
-                box-shadow: 0 0 10px rgba(255, 0, 150, 0.6), 0 0 20px #ff00ff;
-            }
-            100% {
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px #00ffff;
-            }
-        }
-        
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        @keyframes float { 0% { transform: translateY(0) translateX(0) rotate(-45deg); opacity: 1; } 100% { transform: translateY(-1000px) translateX(200px) rotate(-45deg); opacity: 0; } }
+        @keyframes neon-glow { 0% { box-shadow: 0 0 10px rgba(255, 0, 150, 0.6), 0 0 20px #ff00ff; } 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px #00ffff; } }
         .visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -212,14 +178,13 @@
                 18th December
             </p>
             
-            <button id="surprise-button">Wait for a Surprise! (30s)</button>
-            <div id="countdown-timer" style="display: none;">30</div>
+            <button id="surprise-button">Wait for a Surprise! (10s)</button>
+            <div id="countdown-timer" style="display: none;">10</div>
             </div>
     </div>
     
     <script>
         // --- FLOATING HEARTS & SCROLL ANIMATION (unchanged) ---
-
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
@@ -235,18 +200,17 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // observer.unobserve(entry.target); 
                 }
             });
         }, { threshold: 0.2 });
 
         contentBoxes.forEach(box => { observer.observe(box); });
 
-        // --- NEW COUNTDOWN LOGIC ---
+        // --- NEW COUNTDOWN LOGIC (Updated to 10 seconds) ---
 
         const surpriseButton = document.getElementById('surprise-button');
         const countdownTimerDisplay = document.getElementById('countdown-timer');
-        let timeLeft = 30;
+        let timeLeft = 10; // <<<<<<<<<<< CHANGED TO 10 SECONDS
 
         surpriseButton.addEventListener('click', function() {
             if (this.disabled) return;
@@ -266,7 +230,7 @@
                     // Redirect to the new proposal page
                     window.location.href = 'proposal.html'; 
                 }
-            }, 1000); // 1 second interval
+            }, 1000); 
         });
 
     </script>
